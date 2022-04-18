@@ -49,7 +49,9 @@
       "active": false
     },
     "allowlist": {
-      "all": true
+      "notification": {
+        "all": true
+      }
     },
     "windows": [
       {

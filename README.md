@@ -1,53 +1,44 @@
-# Tauri-React Template
+# Tauri-React Test
 
-Barebone of Tauri-React compatibility.
+Testing Tauri with Vite, React, Typescript
 
 By [ZikXewen](https://github.com/ZikXewen). Inspired by [elibro](https://www.youtube.com/watch?v=BbZmLXBDGnU).
 
 ## How Did We Get Here?
 
-1. Install Tauri [prerequisites](https://tauri.studio/docs/getting-started/prerequisite)
+1. Clone or Follow the instructions in [ Template branch](https://github.com/ZikXewen/tauri-test/tree/template).
 
-2. Install yarn.
+2. Make some changes to `src-tauri/tauri.config.json` to minimize the size of our bundle.
 
-   `npm i -g yarn`
+   ```
+   "allowlist": {
+      "notification": {
+         "all": true
+      }
+   }
+   ```
 
-3. Create a React project with Vite.
+3. Add tailwind and tailwind-scrollbar plugin.
 
-   `yarn create vite . --template react-ts`
+   ```
+   yarn add -D tailwindcss postcss autoprefixer tailwind-scrollbar
+   npx tailwindcss init -p
+   ```
 
-4. Initiate Tauri.
+4. Configure `tailwind.config.js`
 
-   `yarn add -D @tauri-apps/cli && yarn tauri init`
+   ```
+   module.exports = {
+      content: ['index.html', './src/**/*.tsx'],
+      theme: {
+         extend: {},
+      },
+      plugins: [require('tailwind-scrollbar')],
+   }
+   ```
 
-5. Install cross-env (to make Vite runs without browser).
+5. Reformat the whole `src` directory. Apart from `src/vite-env.d.ts`
 
-   `yarn add -D cross-env`
+   - `src/index.css` enables tailwind. Imported by `src/main.tsx`
 
-6. Cleanup installments.
-
-   `yarn`
-
-7. Make changes to `package.json`
-
-```
-"scripts": {
-   "dev": "tauri dev",
-   "build": "tauri build",
-}
-```
-
-7. Make changes to `src-tauri/tauri.conf.json`
-
-```
-"build": {
-   "distDir": "../dist",
-   "devPath": "http://localhost:3000",
-   "beforeDevCommand": "yarn cross-env BROWSER=none vite",
-   "beforeBuildCommand": "tsc && vite build"
-},
-```
-
-8. To develop, run `yarn dev`
-
-9. To build a release installer, run `yarn build`
+   - `src/App.tsx` contains examples of Tauri's notification API and Tailwind.
