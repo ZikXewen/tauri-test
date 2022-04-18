@@ -30,24 +30,24 @@ By [ZikXewen](https://github.com/ZikXewen). Inspired by [elibro](https://www.you
 
 7. Make changes to `package.json`
 
-```
-"scripts": {
-   "dev": "tauri dev",
-   "build": "tauri build",
-}
-```
+   ```
+   "scripts": {
+      "dev": "tauri dev",
+      "build": "tauri build",
+   }
+   ```
 
-7. Make changes to `src-tauri/tauri.conf.json`
+8. Make changes to `src-tauri/tauri.conf.json`
 
-```
-"build": {
-   "distDir": "../dist",
-   "devPath": "http://localhost:3000",
-   "beforeDevCommand": "yarn cross-env BROWSER=none vite",
-   "beforeBuildCommand": "tsc && vite build"
-},
-```
+   ```
+   "build": {
+      "distDir": "../dist",
+      "devPath": "http://localhost:3000",
+      "beforeDevCommand": "yarn cross-env BROWSER=none vite",
+      "beforeBuildCommand": "tsc && vite build"
+   },
+   ```
 
-8. To develop, run `yarn dev`
+9. To develop, run `yarn dev`
 
-9. To build a release installer, run `yarn build`
+10. To build a release installer, run `yarn build`
