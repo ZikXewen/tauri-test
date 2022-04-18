@@ -2,7 +2,7 @@
 
 Barebone of Tauri-React compatibility.
 
-By ZikXewen
+By [ZikXewen](https://github.com/ZikXewen). Inspired by [elibro](https://www.youtube.com/watch?v=BbZmLXBDGnU).
 
 ## How Did We Get Here?
 
